@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% block title %}My Bookings{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	{% if messages %}
+	{% for m in messages %}
+	<div class="alert alert-{{m.tags}} alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{m}}
+	</div>
+	{% endfor %}
+	{% endif %}
+	<div class="card col-md mx-auto shadow-lg">
+		<div class="card-body">
+			<h3>My Bookings</h3>
+			<table class="table table-borderless">
+				<tr>
+					<th>Sno</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Mobile Number</th>
+					<th>Car</th>
+					<th>Operations</th>
+				</tr>
+				{% for x in ck %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{x.fname}}</td>
+					<td>{{x.lname}}</td>
+					<td>{{x.email}}</td>
+					<td>{{x.mbnumber}}</td>
+					<td>{{x.cid}}</td>
+					<td><a href="{% url 'bu' x.id %}" class="btn btn-outline-secondary mx-2">Update</a><a href="{% url 'bo' x.id %}" class="btn btn-outline-danger mx-2">Cancel</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

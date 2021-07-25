@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+{% block title %}Car List{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	{% if messages %}
+	{% for m in messages %}
+	<div class="alert alert-{{m.tags}} alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{m}}
+	</div>
+	{% endfor %}
+	{% endif %}
+	<div class="row">
+		<div class="card col-md-4 shadow-lg mx-2 h-100">
+			<div class="card-body">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<h3>Add Cars</h3>
+					{% for j in z %}
+					<div>
+						<div>{{j}}</div>
+					</div>
+					{% endfor %}
+					<div class="row">
+						<div class="col">
+							<input type="reset" name="Reset" class="btn btn-outline-primary my-2 form-control">
+						</div>
+						<div class="col">
+							<input type="submit" name="Add" class="btn btn-outline-success my-2 form-control">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card col-md shadow-lg mx-2">
+			<div class="card-body">
+				<h3>List of Cars</h3>
+				<table class="table table-borderless table-hover">
+					<tr class="bg-dark text-light">
+						<th>S.no</th>
+						<th>Car Name</th>
+						<th>Type</th>
+						<th>Price/Hour</th>
+						<th>Availability</th>
+						<th>Operations</th>
+					</tr>
+					{% for k in a %}
+					<tr>
+						<td>{{forloop.counter}}</td>
+						<td><a href="{% url 'cv' k.id %}">{{k.cname}}</td>
+						<td>{{k.ctype}}</td>
+						<td>{{k.priceperhour}}</td>
+						<td>{{k.cavailability}}</td>
+						<td><a href="{% url 'cu' k.id %}" class="btn btn-outline-info mx-2">Update</a><a href="{% url 'cd' k.id %}" class="btn btn-outline-danger mx-2">Delete</a></td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

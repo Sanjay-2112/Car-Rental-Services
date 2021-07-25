@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% block title %}Car Update{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3>Car Update</h3>
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for t in y %}
+				      {{t}}
+				{% endfor %}
+				<div class="row">
+					<div class="col">
+						<a href="{% url 'cl' %}" class="btn btn-outline-info form-control my-2">Back to List</a>
+					</div>
+					<div class="col">
+						<input type="submit" value="Update" class="btn btn-outline-info form-control my-2">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

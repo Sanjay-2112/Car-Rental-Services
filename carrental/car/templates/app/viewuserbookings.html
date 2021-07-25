@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %}
+{% block title %}User Bookings{% endblock %}
+{% block content %}
+<div class="container mt-4">
+      <h3 class="text-center" style="
+    font-style: oblique;
+    color: deepskyblue;
+    font-weight: bold;">User Bookings</h3>
+      <table class="table table-border">
+        <tr class="bg-dark text-light">
+          <th>Sno</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Car</th>
+          <th>Pick-Up Address</th>
+          <th>Pick-Up Time</th>
+          <th>Pick-Up Date</th>
+          <th>Drop-Off Address</th>
+          <th>Drop-Off Time</th>
+          <th>Drop-Off Date</th>
+          <th>District</th>
+          <th>State</th>
+          <th>Operations</th>
+        </tr>
+        {% for x in oo %}
+        <tr class="bg-light text-dark">
+          <td><b>{{forloop.counter}}</b></td>
+          <td><b>{{x.fname}}</b></td>
+          <td><b>{{x.lname}}</b></td>
+          <td><b>{{x.email}}</b></td>
+          <td><b>{{x.mbnumber}}</b></td>
+          <td><b>{{x.cid}}</b></td>
+          <td><b>{{x.pick_address}}</b></td>
+          <td><b>{{x.pk_time}}</b></td>
+          <td><b>{{x.pk_date}}</b></td>
+          <td><b>{{x.drop_address}}</b></td>
+          <td><b>{{x.dp_time}}</b></td>
+          <td><b>{{x.dp_date}}</b></td>
+          <td><b>{{x.dt}}</b></td>
+          <td><b>{{x.st}}</b></td>
+          <td><a href="{% url 'ubc' x.id %}" class="btn btn-outline-danger mx-2">Cancel</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

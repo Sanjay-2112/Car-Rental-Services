@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %}
+{% block title %}Book{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	{% if messages %}
+	{% for m in messages %}
+	<div class="alert alert-{{m.tags}} alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{m}}
+	</div>
+	{% endfor %}
+	{% endif %}
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3>Book</h3>
+			<form method="POST">
+				{% csrf_token %}
+				<p><label for="id_cid">Car:</label><select name="cid" class="form-control my-2" required id="id_cid">
+					{% for j in aa %}
+					<option value="{{j.id}}">{{j}}</option>
+					{% endfor %}
+				</select>
+<p><label for="id_fname">First Name:</label> <input type="text" name="fname" class="form-control my-2" placeholder="Enter First Name" maxlength="50" required id="id_fname"></p>
+<p><label for="id_lname">Last Name:</label> <input type="text" name="lname" class="form-control my-2" placeholder="Enter Last Name" maxlength="50" required id="id_lname"></p>
+<p><label for="id_email">Email:</label> <input type="email" name="email" class="form-control my-2" placeholder="Enter Email" maxlength="254" required id="id_email"></p>
+<p><label for="id_mbnumber">Mobile number:</label> <input type="text" name="mbnumber" class="form-control my-2" placeholder="Enter MobileNumber" maxlength="10" required id="id_mbnumber"></p>
+<p><label for="id_pick_address">Pick-Up address:</label> <textarea name="pick_address" cols="40" rows="3" class="form-control my-2" placeholder="Enter Pick-up Address" maxlength="100" required id="id_pick_address">
+</textarea></p>
+<p><label for="id_drop_address">Drop-Of address:</label> <textarea name="drop_address" cols="40" rows="3" class="form-control my-2" placeholder="Enter Drop Address" maxlength="100" required id="id_drop_address">
+</textarea></p>
+<p><label for="id_dt">District:</label> <select name="dt" class="form-control my-2" placeholder="Select District" id="id_dt">
+  <option value="Krishna">Krishna</option>
+
+  <option value="Guntur">Guntur</option>
+
+  <option value="Sl" selected>Select District</option>
+
+</select></p>
+<p><label for="id_st">State:</label> <select name="st" class="form-control my-2" placeholder="Select State" id="id_st">
+  <option value="AP">Andhra Pradesh</option>
+
+  <option value="Default" selected>Select State</option>
+
+</select></p>
+<p><label for="id_pk_time">Pick-Up time:</label><input type="Time" name="pk_time" class="form-control my-2" placeholder="Enter Pick-up Time Date" required id="id_pk_time"></p>
+<p><label for="id_pk_date">Pick-Up date:</label> <input type="Date" name="pk_date" class="form-control my-2" placeholder="Enter Pick-up Date" required id="id_pk_date"></p>
+<p><label for="id_dp_time">Drop-Off time:</label> <input type="Time" name="dp_time" class="form-control my-2" placeholder="Enter Drop Time" required id="id_dp_time"></p>
+<p><label for="id_dp_date">Drop-Off date:</label> <input type="Date" name="dp_date" class="form-control my-2" placeholder="Enter Drop Date" required id="id_dp_date"></p>
+<p><label for="id_totalprice"><label class="form-check-label"><input class="form-check-input" type="checkbox">Payment done in Offline Trasaction and Amount is to be told at the time of Drop-Off</label><label class="form-check-label"><input class="form-check-input" type="checkbox"> Agree to <a href="#">Terms and Conditons</a></label>
+				<div class="row">
+					<div class="col">
+						<a href="{% url 'sv' %}" class="btn btn-outline-secondary form-control my-2">Back</a>
+					</div>
+					<div class="col">
+						<input type="reset" value="Reset" class="btn btn-outline-danger form-control my-2">
+					</div>
+					<div class="col">
+						<input type="submit" value="Book" class="btn btn-outline-success form-control my-2">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

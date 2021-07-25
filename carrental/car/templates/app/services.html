@@ -1,0 +1,97 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Services{% endblock %}
+{% block content %}
+<div class="container-fluid">
+	{% if not user.is_authenticated %}
+	<div class="row">
+		<div class="col text-center py-5">
+			<h1 class="text-uppercase text-color font-weight-bold">Book a Car and Enjoy Your Trip</h1>
+		</div>
+	</div>
+	<div class="row mx-2">
+		{% for x in i %}
+		<div class="col col-md-3">
+			<div class="card shadow-lg my-2">
+				 <img class="card-img-top" src="{{x.cimage.url}}" alt="Car">
+				 <div class="card-body">
+				 	<h3 class="text-center">{{x.cname}}</h3>
+				 	<h6>Type:{{x.ctype}}</h6>
+				 	<h6>Price/Hour:Rs.{{x.priceperhour}}/Hour</h6>
+				 	<h6>Availability:
+				 	{% if x.cavailability == 'NA'  %}
+				 	<span class="badge badge-danger">Not Available</span>
+				 	{% else %}
+				 	<span class="badge badge-primary">Available</span>
+				 	{% endif %}
+				 	</h6>
+				 	{% if x.cavailability == 'NA'  %}
+				 	<a href="#" class="btn btn-outline-primary disabled">Not Available for Booking</a>
+				 	{% else %}
+				 	<a href="{% url 'lg' %}" class="btn btn-outline-success btn-block">Login to Book</a>
+				 	{% endif %}
+				 </div>
+			</div>
+		</div>
+		{% endfor %}
+	{% elif user.is_superuser %}
+	<div class="row">
+		<div class="col text-center py-5">
+			<h1 class="text-uppercase text-color font-weight-bold">Book a Car and Enjoy Your Trip</h1>
+		</div>
+	</div>
+	<div class="row mx-2">
+		{% for x in i %}
+		<div class="col col-md-3">
+			<div class="card shadow-lg my-2">
+				 <img class="card-img-top" src="{{x.cimage.url}}" alt="Car">
+				 <div class="card-body">
+				 	<h3 class="text-center">{{x.cname}}</h3>
+				 	<h6>Type:{{x.ctype}}</h6>
+				 	<h6>Price/Hour:Rs.{{x.priceperhour}}/Hour</h6>
+				 	<h6>Availability:
+				 	{% if x.cavailability == 'NA'  %}
+				 	<span class="badge badge-danger">Not Available</span>
+				 	{% else %}
+				 	<span class="badge badge-primary">Available</span>
+				 	{% endif %}
+				 	</h6>
+				 </div>
+			</div>
+		</div>
+		{% endfor %}	
+	{% else %}
+	<div class="row">
+		<div class="col text-center py-5">
+			<h1 class="text-uppercase text-color font-weight-bold">Book a Car and Enjoy Your Trip</h1>
+		</div>
+	</div>
+	<div class="row mx-2">
+		{% for x in i %}
+		<div class="col col-md-3">
+			<div class="card shadow-lg my-2">
+				 <img class="card-img-top" src="{{x.cimage.url}}" alt="Car">
+				 <div class="card-body">
+				 	<h3 class="text-center">{{x.cname}}</h3>
+				 	<h6>Type:{{x.ctype}}</h6>
+				 	<h6>Price/Hour:Rs.{{x.priceperhour}}/Hour</h6>
+				 	<h6>Availability:
+				 	{% if x.cavailability == 'NA'  %}
+				 	<span class="badge badge-danger">Not Available</span>
+				 	{% else %}
+				 	<span class="badge badge-primary">Available</span>
+				 	{% endif %}
+				 	</h6>
+				 	{% if x.cavailability == 'NA'  %}
+				 	<a href="#" class="btn btn-outline-primary disabled">Not Available for Booking</a>
+				 	{% else %}
+				 	<a href="{% url 'bk' x.id %}" class="btn btn-outline-success btn-block">Book</a>
+				 	{% endif %}
+				 </div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+</div>
+{% endblock %}
