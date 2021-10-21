@@ -1,0 +1,68 @@
+Project title: Online car Booking system.
+
+
+Aim/ Objective:
+The main objective of the Car booking System is to manage the details of Car, Payment,
+Customer details. The project is totally safe and secure and can be used by everyone. The
+purpose of this is to reduce the manual work such as writing the customer details, pick up and
+drop off location and payment. This saves time for both customer and manager. This project
+aims at offering the best of car booking services to the customers in need. It will have all kinds
+of cars.
+ 
+ 
+ Features of this application:
+● This application manages all the car booking details like customer details, payment
+details, pick up and dropping points. Different distance have different cost.
+● It tracks all the information of customer details, booking and payment information.
+● It will provide the description of all the available cars and services.
+● Customers can view their payment information and they can cancel their order in
+time.
+● Admin has total control over the application. They can modify the car prices, add
+or delete cars, and manage payment details. Admin can access this information if
+and only if he logs in to the system with a unique user id. They can change
+passwords by clicking the forget password link and get reset password link to their
+following email address.
+● Customers will get a confirmation of their bookings after booking.
+● Customers can choose if they want a driver or not.
+● This project can have new features that can be added in the future as required.
+
+
+Sample scenarios:
+ User login:
+● To access this web-based application services, the user has to sign up/login with their
+email address and password.
+● Once the user logs in, they can now access the application.
+ 
+ 
+ Customer details:
+● It will ask for the customer details like name, contact number, and email address.
+● It will store the customer details for further contacting.
+ Car booking details:
+● The application will ask all the details about the booking.
+● The user has to provide all the information about their booking like name of the client,
+pick up point, drop off point and their contact number. The details will be saved by user
+as well as admin. 
+
+
+Administration end:
+● Admin can access this application. Admin can see the bookings made by clients/users.
+● Information that is provided by the user/client can be viewed by the admin.
+● The user can cancel their bookings.
+● Payment details can be viewed by the admin and he can update the status as well.
+● Admin can change/modify the car descriptions, and the prices.
+● Verify the car information database whether the car is available or not.
+
+
+User end:
+● The user can view their booking details in their account under booked details and can
+cancel anytime.
+● Transaction details are available all the time to track easily.
+● Users need not enter their details every time they make a booking.
+
+
+Who can use this application in real life:
+This can be used by everyone who needs a car for their travel or for their own reasons. This
+web based car booking application has offered an advantage to both clients as well as
+companies to effectively manage the business and satisfy the customer needs. It takes very
+less time to book a car so time is saved. This system will allow the users to book a car
+according to their budget. This offers a door step delivery and pick up. 
